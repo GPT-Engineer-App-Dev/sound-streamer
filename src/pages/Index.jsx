@@ -1,7 +1,10 @@
-import { Box, Container, VStack, Text, Flex, Image, IconButton, HStack, Spacer } from "@chakra-ui/react";
+import { Box, Container, VStack, Text, Flex, Image, IconButton, HStack, Spacer, Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { FaPlay, FaPause, FaForward, FaBackward } from "react-icons/fa";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <Container maxW="container.xl" p={0}>
       {/* Navigation Bar */}
@@ -17,7 +20,10 @@ const Index = () => {
 
       {/* Featured Playlists */}
       <Box bg="gray.800" color="white" p={8}>
-        <Text fontSize="3xl" mb={4}>Featured Playlists</Text>
+        <Flex justify="space-between" align="center" mb={4}>
+        <Text fontSize="3xl">Featured Playlists</Text>
+        <Button colorScheme="blue" onClick={() => navigate("/create-playlist")}>Create Playlist</Button>
+      </Flex>
         <Flex wrap="wrap" justify="space-around">
           <Box bg="gray.700" p={4} m={2} borderRadius="md" width="200px" textAlign="center">
             <Image src="https://via.placeholder.com/150" alt="Playlist 1" borderRadius="md" mb={2} />
